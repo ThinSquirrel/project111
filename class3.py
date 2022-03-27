@@ -9,6 +9,8 @@ df = pd.read_csv("data2.csv")
 
 data = df["reading_time"].tolist()
 
+datamean = statistics.mean(data)
+
 def RandSet(counter):
 
     dataSet = []
@@ -31,6 +33,10 @@ for i in range(0,1000):
     meanList.append(setOfMeans)
 
 mean = statistics.mean(meanList)
+stdev = statistics.stdev(meanList)
+
+zScore = (datamean - mean)/stdev
+print("z score is: ",zScore)
 
 print("Mean of sampling distribution is: ",mean)
 
